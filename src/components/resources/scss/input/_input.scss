@@ -1,0 +1,67 @@
+@import "../core/core";
+
+.dui-input {
+  position: relative;
+  border: none;
+  width: 100%;
+  padding: 5px 2px;
+  font-family: inherit;
+  font-size: 18px;
+  margin: 10px 0 0 0;
+  background-color: transparent;
+  color: map-get($grey, 8);
+
+  &:focus {
+    outline: none;
+
+    & + .dui-input-label {
+      transform: translate(-25%, -22px) scale(.5);
+    }
+
+    & ~ .dui-input-underline-active {
+      transform: scaleX(1);
+    }
+  }
+
+  &-container {
+    position: relative;
+    width: 100%;
+    padding: 6px 4px;
+    margin: 4px;
+  }
+
+  &-label {
+    position: absolute;
+    top: 16px;
+    left: 8px;
+    font-size: 18px;
+    font-family: inherit;
+    color: map-get($grey, 3);
+    transition: transform .2s ease;
+
+    &-active {
+      transform: translate(-25%, -22px) scale(.5);
+    }
+  }
+
+  &-underline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background-color: map-get($grey, 3);
+    border-radius: 5px;
+    overflow: hidden;
+
+    &-active {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      background-color: map-get($theme, primary);
+      transform: scaleX(0);
+      transition: transform .3s ease;
+    }
+  }
+}
