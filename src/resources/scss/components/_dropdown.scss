@@ -1,0 +1,77 @@
+@import "../core/core";
+
+.dui-dropdown {
+  @include size(100%, auto);
+  border-radius: 5px;
+  background: map-get($theme, dark);
+  padding: 20px 15px;
+  overflow-x: hidden;
+  cursor: pointer;
+
+  &-container {
+    position: relative;
+    margin: 10px 5px;
+    perspective: 2400px;
+    perspective-origin: top;
+  }
+
+  &-icon {
+    font-size: 16px;
+    transition: transform .3s;
+
+    &-rotate {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-drawer {
+    @include size(100%, auto);
+    position: absolute;
+    max-height: 500px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: map-get($theme, dark);
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    transform: rotate3d(1, 0, 0, -90deg);
+    transform-origin: top;
+    transition: transform .3s ease, opacity .3s ease;
+    @include setShadow("raised", rgba(map-get($theme, dark), 0.26));
+
+    &-open {
+      opacity: 1;
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    &-item {
+      position: relative;
+      padding: 20px 15px;
+      margin: 0;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(white, .05);
+
+        & .dui-dropdown-drawer-highlight {
+          transform: none;
+        }
+      }
+    }
+
+    &-text {
+      position: relative;
+      z-index: map-get($index, above);
+    }
+
+    &-highlight {
+      @include posAbs(0, 0, false, default);
+      transform: translateX(-100%);
+      width: 5px;
+      height: 100%;
+      background-color: map-get($theme, primary);
+      transition: transform .2s ease;
+    }
+  }
+}

@@ -49,4 +49,4 @@
   }
 </script>
 
-<style lang="scss" scoped>@import "../resources/scss/input/input";</style>
+<style lang="scss" scoped>@import "../../resources/scss/components/input/input";</style>

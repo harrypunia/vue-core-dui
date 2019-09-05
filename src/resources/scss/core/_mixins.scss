@@ -51,21 +51,41 @@
 
 @mixin smooth($prop, $time) {
   transition: $prop ease $time;
-  &:hover {transition: $prop $time ease}
+  &:hover {
+    transition: $prop $time ease
+  }
 }
 
 @mixin view($which) {
   @if $which == phone {
-    @media only screen and (max-width: 600px) {@content}
+    @media only screen and (max-width: 600px) {
+      @content
+    }
   } @else if $which == tab {
-    @media only screen and (max-width: 1000px) {@content}
+    @media only screen and (max-width: 1000px) {
+      @content
+    }
   } @else if $which == laptop {
-    @media only screen and (max-width: 1400px) {@content}
+    @media only screen and (max-width: 1400px) {
+      @content
+    }
   } @else {
-    @media only screen and (max-width: $which) {@content}
+    @media only screen and (max-width: $which) {
+      @content
+    }
   }
 }
 
-@mixin hide($which) {@include view($which) {display: none}}
+@mixin hide($which) {
+  @include view($which) {
+    display: none
+  }
+}
 
-@mixin setShadow($which) {box-shadow: map-get($shadows, $which)}
+@mixin setShadow($which, $color) {
+  @if $which == "raised" {
+    box-shadow: 0 20px 16px $color;
+  } @else {
+    box-shadow: 0 0 16px $color;
+  }
+}
