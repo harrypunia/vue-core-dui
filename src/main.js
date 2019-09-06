@@ -2,7 +2,7 @@ require("./components/icons/icons");
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import Vue from 'vue'
 import App from './App.vue'
-import mixin from "./components/js/main";
+import mixin from "./components/js/mixin";
 
 Vue.component("dui-icon", FontAwesomeIcon);
 Vue.mixin(mixin);

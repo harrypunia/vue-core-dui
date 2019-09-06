@@ -1,24 +1,24 @@
 <template>
-  <div class="dui-dropdown-container" :style="{zIndex: zIndex || 0, ...(assignCss(css, 'container'))}">
+  <div class="dui-dropdown-container" :style="{zIndex: zIndex || 0, ...(getObjectKey(css, 'container'))}">
     <Grid
         center justify="space-between"
         class="dui-dropdown"
         @click.native.prevent="toggleDrawer"
-        :style="assignCss(css, 'button')">
-      <p reset-margin :style="assignCss(css, 'buttonText')">{{value}}</p>
+        :style="getObjectKey(css, 'button')">
+      <p reset-margin :style="getObjectKey(css, 'buttonText')">{{value}}</p>
       <dui-icon
           :class="['dui-dropdown-icon', {'dui-dropdown-icon-rotate' : isDrawer}]"
           :icon="arrowIcon || 'chevron-down'"
           color="white"></dui-icon>
     </Grid>
-    <div class="dui-dropdown-drawer" :class="{'dui-dropdown-drawer-open' : isDrawer}" :style="assignCss(css, 'drawer')">
+    <div class="dui-dropdown-drawer" :class="{'dui-dropdown-drawer-open' : isDrawer}" :style="getObjectKey(css, 'drawer')">
       <h4 :key="index"
           v-for="(option, index) in options"
           class="dui-dropdown-drawer-item"
-          :style="assignCss(css, 'drawerItem')"
+          :style="getObjectKey(css, 'drawerItem')"
           @click.prevent="() => onChange ? onChange(option, index) : select(option)">
-        <span class="dui-dropdown-drawer-highlight" :style="assignCss(css, 'drawerHighlight')"></span>
-        <span class="dui-dropdown-drawer-text" :style="assignCss(css, 'drawerText')">{{option}}</span>
+        <span class="dui-dropdown-drawer-highlight" :style="getObjectKey(css, 'drawerHighlight')"></span>
+        <span class="dui-dropdown-drawer-text" :style="getObjectKey(css, 'drawerText')">{{option}}</span>
       </h4>
     </div>
   </div>

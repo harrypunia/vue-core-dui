@@ -4,8 +4,8 @@
         :name="name" :type="type || 'text'"
         class="dui-input"
         v-model="value_"
-        :style="css ? (css.input || {}) : {}"
-        @input="onChange ? onChange(value_) : onInput()"
+        :style="getObjectKey(css, 'input')"
+        @input="onChange ? onChange(value) : onInput()"
     />
     <label
         :for="name"
@@ -25,7 +25,7 @@
     props: {
       name: {
         type: String,
-        required: true
+        default: "input"
       },
       value: {
         type: String,
@@ -39,6 +39,11 @@
     data() {
       return {
         value_: this.value
+      }
+    },
+    watch: {
+      value(val) {
+        this.value_ = val;
       }
     },
     methods: {

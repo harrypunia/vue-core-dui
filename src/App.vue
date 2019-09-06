@@ -1,26 +1,34 @@
 <template>
   <div id="app">
+    <button @click.prevent="setDefault">Save State</button>
+    <button @click.prevent="resetHomePage">Reset</button>
     <div style="width: 250px; margin: 20px">
       <p invert>Input: {{`${input} & ${customInput}`}}</p>
-      <Input name="input" :value.sync="input" label="Input"/>
-      <Input name="custom-css" :value.sync="customInput" label="Custom CSS" :css="inputCSS"/>
+      <Input :value.sync="input" label="Input"/>
+      <Input :value.sync="customInput" label="Custom CSS" :css="inputCSS"/>
     </div>
-    <div style="width: 250px; margin: 20px">
-      <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
-      <Dropdown name="dropdown" :value.sync="dropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
-      <Dropdown name="dropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down" :css="dropdownCSS"/>
-    </div>
+    <Card flat>
+      <Grid wrap column>
+        <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
+        <Grid>
+          <Dropdown name="dropdown" :value.sync="dropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
+          <Dropdown name="dropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down" :css="dropdownCSS"/>
+        </Grid>
+      </Grid>
+    </Card>
   </div>
 </template>
 
 <script>
+  import Card from "./components/card/Card";
   import Dropdown from "./components/Dropdown";
+  import Grid from "./components/grid/Grid";
   import Input from "./components/input/Input";
   import style from "./resources/jss/style";
 
   export default {
     name: 'app',
-    components: {Input, Dropdown},
+    components: {Input, Dropdown, Grid, Card},
     data() {
       return {
         ...style,
@@ -29,6 +37,11 @@
         dropdown: "Drop Down",
         customDropdown: "Custom Drop Down",
         dropDownOptions: ["Good Morning", "Good Afternoon", "Good Evening", "Good Night"],
+      }
+    },
+    methods: {
+      resetHomePage() {
+        this.reset();
       }
     }
   }

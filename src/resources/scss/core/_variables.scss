@@ -4,4 +4,10 @@ $index: (
     default: 0,
     above: 1,
     forceAbove: 2
+);
+
+$shadow: (
+    small: 0 6px 18px rgba(0, 0, 0, .09),
+    regular: 0 10px 24px rgba(0, 0, 0, .08),
+    large: 0 20px 30px rgba(0, 0, 0, .07),
 )

@@ -2,13 +2,20 @@
 
 .grid {
   display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 10px;
+
+  &-row {
+    flex-direction: row;
+  }
 
   &-column {
     flex-direction: column;
   }
 
-  &-row {
-    flex-direction: row;
+  &-wrap {
+    flex-wrap: wrap;
   }
 
   &-align {

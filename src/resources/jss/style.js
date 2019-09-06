@@ -24,6 +24,11 @@ export default {
     drawerHighlight: {
       backgroundColor: "rgba(80, 30, 120)",
       width: "20%"
+    },
+    cardCSS: {
+      container: {
+        width: "auto"
+      }
     }
   }
 }
