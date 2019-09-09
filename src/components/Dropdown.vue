@@ -5,7 +5,7 @@
         class="dui-dropdown"
         @click.native.prevent="toggleDrawer"
         :style="getObjectKey(css, 'button')">
-      <p reset-margin :style="getObjectKey(css, 'buttonText')">{{value}}</p>
+      <p reset-margin class="dui-dropdown-selected" :style="getObjectKey(css, 'buttonText')">{{value}}</p>
       <dui-icon
           :class="['dui-dropdown-icon', {'dui-dropdown-icon-rotate' : isDrawer}]"
           :icon="arrowIcon || 'chevron-down'"

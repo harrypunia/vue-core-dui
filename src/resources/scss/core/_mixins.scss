@@ -5,6 +5,12 @@
   height: $h;
 }
 
+@mixin customCss($classSuffix) {
+  & /deep/ .dui-#{$classSuffix} {
+    @content
+  }
+}
+
 @mixin posAbs($x, $y, $offset, $invert) {
   position: absolute;
   @if $invert == default {
@@ -86,7 +92,7 @@
 
 @mixin setShadow($which, $color) {
   @if $which == "raised" {
-    box-shadow: 0 20px 16px $color;
+    box-shadow: 0 12px 16px $color;
   } @else {
     box-shadow: 0 0 16px $color;
   }

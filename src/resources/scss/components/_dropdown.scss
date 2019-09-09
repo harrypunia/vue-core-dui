@@ -39,7 +39,7 @@
     transform: rotate3d(1, 0, 0, -90deg);
     transform-origin: top;
     transition: transform .3s ease, opacity .3s ease;
-    @include setShadow("raised", rgba(map-get($theme, dark), 0.26));
+    @include setShadow("raised", rgba(map-get($theme, dark), 0.16));
 
     &-open {
       opacity: 1;

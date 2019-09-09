@@ -1,9 +1,10 @@
 <template>
   <button
-      class="button"
+      class="dui-button"
       :class="[typeClasses]"
+      :style="getObjectKey(css, 'button')"
       @click.prevent="e => onClick ? onClick(e) : null">
-    <p reset-margin invert class="button-text">
+    <p reset-margin invert class="dui-button-text" :style="getObjectKey(css, 'text')">
       <slot></slot>
     </p>
   </button>
@@ -18,11 +19,12 @@
         default: "outline",
         validator: value => ["fill", "outline", "rigid"].indexOf(value) !== -1
       },
+      css: Object,
       onClick: Function
     },
     data() {
       return {
-        typeClasses: `button-${this.type}`
+        typeClasses: `dui-button-${this.type}`
       }
     }
   }

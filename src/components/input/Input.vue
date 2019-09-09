@@ -1,5 +1,5 @@
 <template>
-  <div class="dui-input-container" :style="css ? (css.container || {}) : {}">
+  <div class="dui-input-container" :style="getObjectKey(css, 'container')">
     <input
         :name="name" :type="type || 'text'"
         class="dui-input"
