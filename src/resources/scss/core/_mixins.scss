@@ -1,3 +1,5 @@
+@import "./colors";
+
 @mixin size($w, $h) {
   width: $w;
   height: $h;
@@ -87,5 +89,31 @@
     box-shadow: 0 20px 16px $color;
   } @else {
     box-shadow: 0 0 16px $color;
+  }
+}
+
+@mixin focus() {
+  &:focus {
+    &:after {
+      content: "";
+      @include posAbs(50%, 50%, true, default);
+      @include size(90%, 75%);
+      border-radius: inherit;
+      transform-origin: left top;
+      background: rgba(255, 255, 255, .15);
+      animation: pulse 4s ease;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(.9) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
   }
 }

@@ -23,6 +23,6 @@
 
   &-raised {
     box-shadow: map-get($shadow, regular);
-    background-color: white;
+    background-color: map-get($theme, white);
   }
 }

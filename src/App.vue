@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <button @click.prevent="setDefault">Save State</button>
-    <button @click.prevent="resetHomePage">Reset</button>
+    <Button :onClick="e => setDefault()">Save State</Button>
+    <Button :onClick="resetHomePage" type="fill">Reset</Button>
     <div style="width: 250px; margin: 20px">
       <p invert>Input: {{`${input} & ${customInput}`}}</p>
       <Input :value.sync="input" label="Input"/>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+  import Button from "./components/button/Button";
   import Card from "./components/card/Card";
   import Dropdown from "./components/Dropdown";
   import Grid from "./components/grid/Grid";
@@ -28,7 +29,7 @@
 
   export default {
     name: 'app',
-    components: {Input, Dropdown, Grid, Card},
+    components: {Input, Dropdown, Grid, Card, Button},
     data() {
       return {
         ...style,

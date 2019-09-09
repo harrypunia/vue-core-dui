@@ -1,0 +1,73 @@
+@import "../../core/core";
+
+.button {
+  position: relative;
+  min-width: 120px;
+  padding: 10px 4em;
+  margin: 10px;
+  border-radius: 5em;
+  cursor: pointer;
+  box-shadow: map-get($shadow, xsmall);
+  transition: background-color .3s ease, transform .3s ease;
+
+  &-text {
+    @include smooth(color, .3s);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+
+  &-outline {
+    background-color: map-get($theme, white);
+    border: 1px solid map-get($theme, secondary);
+    @include focus();
+
+    .button-text {
+      color: map-get($theme, secondary);
+    }
+
+    &:hover, &:focus {
+      background-color: map-get($theme, secondary);
+
+      .button-text {
+        color: map-get($theme, white);
+      }
+    }
+  }
+
+  &-fill {
+    background-color: map-get($theme, secondary);
+    border: 1px solid map-get($theme, secondary);
+    @include focus();
+
+    .button-text {
+      color: map-get($theme, white);
+    }
+  }
+
+  &-outline {
+    background-color: map-get($theme, white);
+    border: 1px solid map-get($theme, secondary);
+
+    .button-text {
+      color: map-get($theme, secondary);
+    }
+
+    &:hover {
+      background-color: map-get($theme, secondary);
+
+      .button-text {
+        color: map-get($theme, white);
+      }
+    }
+  }
+}

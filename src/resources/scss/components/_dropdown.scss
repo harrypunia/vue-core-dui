@@ -50,11 +50,11 @@
       position: relative;
       padding: 20px 15px;
       margin: 0;
-      color: white;
+      color: map-get($theme, white);
       cursor: pointer;
 
       &:hover {
-        background-color: rgba(white, .05);
+        background-color: rgba(map-get($theme, white), .05);
 
         & .dui-dropdown-drawer-highlight {
           transform: none;
