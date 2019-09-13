@@ -30,6 +30,7 @@
 }
 
 .customDropdown {
+  z-index: 20;
 
   @include customCss(dropdown) {
     background-color: white;

@@ -1,0 +1,78 @@
+@import "../core/core";
+
+.dui-tooltip {
+  position: absolute;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: fit-content;
+  max-width: 300px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: map-get($index, default);
+
+  &-message {
+    font-size: 14px;
+  }
+
+  &-container {
+    position: relative;
+
+    &:hover > .dui-tooltip {
+      opacity: 1;
+
+      &-placement {
+        &-top {
+          transform: translate(-50%, calc(-100% - 20px));
+        }
+
+        &-right {
+          transform: translate(20px, -50%);
+        }
+
+        &-bottom {
+          transform: translate(-50%, 20px);
+        }
+
+        &-left {
+          transform: translate(calc(-100% - 20px), -50%);
+        }
+      }
+    }
+  }
+
+  &-placement {
+
+    &-top {
+      left: 50%;
+      top: 0;
+      transform-origin: center bottom;
+      transform: translate(-50%, -100%) scale(0);
+    }
+
+    &-right {
+      left: 100%;
+      top: 50%;
+      transform-origin: left center;
+      transform: translate(0, -50%) scale(0);
+    }
+
+    &-bottom {
+      top: 100%;
+      left: 50%;
+      transform-origin: center top;
+      transform: translate(-50%, 0) scale(0);
+    }
+
+    &-left {
+      left: 0;
+      top: 50%;
+      transform-origin: right center;
+      transform: translate(-100%, -50%) scale(0);
+    }
+  }
+
+  &-content {
+    position: relative;
+  }
+}

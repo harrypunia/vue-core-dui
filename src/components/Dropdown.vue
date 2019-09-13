@@ -28,11 +28,11 @@
   import Grid from "./grid/Grid";
 
   export default {
-    name: "Input",
+    name: "Dropdown",
     props: {
       name: {
         type: String,
-        required: true
+        default: "dropdown"
       },
       value: {
         type: String,

@@ -13,8 +13,14 @@
         <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
         <Grid>
           <Dropdown name="dropdown" :value.sync="dropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
-          <Dropdown class="customDropdown" name="dropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down"/>
+          <Dropdown class="customDropdown" name="dropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
         </Grid>
+        <Tooltip msg="Voila! Nice to meet you Voila! Nice to meet you Voila! Nice to meet you">
+          <h4 invert>Hover on Me & uncover the truth</h4>
+        </Tooltip>
+        <Tooltip msg="Voila! Nice to meet you Voila! Nice to meet you Voila! Nice to meet you">
+          <Input :value.sync="input" label="Input"/>
+        </Tooltip>
       </Grid>
     </Card>
   </div>
@@ -26,10 +32,11 @@
   import Dropdown from "../components/Dropdown";
   import Grid from "../components/grid/Grid";
   import Input from "../components/input/Input";
+  import Tooltip from "../components/Tooltip";
 
   export default {
     name: "Home",
-    components: {Input, Dropdown, Grid, Card, Button},
+    components: {Input, Dropdown, Grid, Card, Button, Tooltip},
     data() {
       return {
         input: "Input",
