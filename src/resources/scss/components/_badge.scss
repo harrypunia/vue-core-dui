@@ -1,0 +1,33 @@
+@import "../core/core";
+
+.dui-badge {
+  width: auto;
+  background-color: map-get($grey, 1);
+  padding: 4px 14px;
+  margin: 0 4px;
+  border-radius: 20px;
+
+  &-icon {
+    margin-right: 3px;
+  }
+
+  &-small {
+    padding: 3px 12px;
+    margin: 0 3px;
+  }
+
+  &-large {
+    padding: 5px 16px;
+    margin: 0 5px;
+  }
+
+  &-text {
+    &-small {
+      font-size: 12px;
+    }
+
+    &-large {
+      font-size: 18px;
+    }
+  }
+}

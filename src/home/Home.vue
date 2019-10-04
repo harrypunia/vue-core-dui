@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Grid center column>
     <Button :onClick="e => setDefault()">Save State</Button>
     <Button :onClick="resetHomePage" type="fill">Reset</Button>
     <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
@@ -9,15 +9,19 @@
       <Input class="customInput" :value.sync="customInput" label="Custom CSS"/>
     </div>
     <Card flat>
-      <Grid wrap column>
+      <Grid wrap center column>
         <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
-        <Grid>
+        <Grid center>
           <Dropdown name="dropdown" :value.sync="dropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
-          <Dropdown class="customDropdown" name="dropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down"/>
+          <Dropdown name="dropdown" class="customDropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down"/>
         </Grid>
       </Grid>
+      <Grid>
+        <Badge value="Vue" />
+        <Badge value="Dui">❌️</Badge>
+      </Grid>
     </Card>
-  </div>
+  </Grid>
 </template>
 
 <script>
@@ -26,10 +30,11 @@
   import Dropdown from "../components/Dropdown";
   import Grid from "../components/grid/Grid";
   import Input from "../components/input/Input";
+  import Badge from "../components/Badge";
 
   export default {
     name: "Home",
-    components: {Input, Dropdown, Grid, Card, Button},
+    components: {Input, Dropdown, Grid, Card, Button, Badge},
     data() {
       return {
         input: "Input",
