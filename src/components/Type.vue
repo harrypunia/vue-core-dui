@@ -1,18 +1,18 @@
 <template>
   <div class="dui-text">
-    <h1 v-if="type === 'h1'" class="dui-text-global dui-text-h1" :class="[textClasses]">
+    <h1 v-if="type === 'h1'" class="dui-text-global dui-text-h1" :class="textClasses">
       <slot></slot>
     </h1>
-    <h2 v-else-if="type === 'h2'" class="dui-text-global dui-text-h2" :class="[textClasses]">
+    <h2 v-else-if="type === 'h2'" class="dui-text-global dui-text-h2" :class="textClasses">
       <slot></slot>
     </h2>
-    <h3 v-else-if="type === 'h3'" class="dui-text-global dui-text-h3" :class="[textClasses]">
+    <h3 v-else-if="type === 'h3'" class="dui-text-global dui-text-h3" :class="textClasses">
       <slot></slot>
     </h3>
-    <h4 v-else-if="type === 'h4'" class="dui-text-global dui-text-h4" :class="[textClasses]">
+    <h4 v-else-if="type === 'h4'" class="dui-text-global dui-text-h4" :class="textClasses">
       <slot></slot>
     </h4>
-    <p v-else class="dui-text-global dui-text-p" :class="[textClasses]">
+    <p v-else class="dui-text-global dui-text-p" :class="textClasses">
       <slot></slot>
     </p>
   </div>
@@ -48,4 +48,4 @@
   };
 </script>
 
-<style lang="scss" scoped>@import "../resources/scss/components/text";</style>
+<style lang="scss" scoped>@import "../resources/scss/components/type";</style>
