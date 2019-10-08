@@ -39,7 +39,7 @@
     data() {
       return {
         value_: this.value
-      }
+      };
     },
     watch: {
       value(val) {
@@ -48,10 +48,10 @@
     },
     methods: {
       onInput() {
-        this.$emit('update:value', this.value_);
+        this.$emit("update:value", this.value_);
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>@import "../../resources/scss/components/input/input";</style>

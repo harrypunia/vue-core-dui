@@ -1,0 +1,67 @@
+@import "../core/core";
+
+.dui-text {
+  &-global {
+    font-family: sans-serif;
+    line-height: 1.5em;
+    margin: 0;
+    margin-top: .5em;
+    color: map-get($grey, 0);
+  }
+
+  &-h1 {
+    font-weight: 700;
+    font-size: 40px;
+    font-size: 4.0rem;
+  }
+
+  &-h2 {
+    font-weight: 700;
+    font-size: 24px;
+    font-size: 2.4rem;
+  }
+
+  &-h3 {
+    font-weight: 400;
+    font-size: 22px;
+    font-size: 2.2rem;
+  }
+
+  &-h4 {
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1.6rem;
+    letter-spacing: .1em;
+  }
+
+  &-p {
+    font-weight: 300;
+    font-size: 1.6rem;
+    font-size: 16px;
+    max-width: 500px;
+  }
+
+  &-noMargin {
+    margin: 0;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-invert {
+    color: map-get($grey, 10);
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  uppercase {
+    text-transform: uppercase;
+  }
+
+  lowercase {
+    text-transform: lowercase;
+  }
+}

@@ -16,7 +16,7 @@
           <Dropdown name="dropdown" class="customDropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down"/>
         </Grid>
       </Grid>
-      <Grid>
+      <Grid center>
         <Badge value="Vue" />
         <Badge value="Dui">❌️</Badge>
       </Grid>

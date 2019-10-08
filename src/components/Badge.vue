@@ -3,16 +3,18 @@
     <div v-if="$slots.default" class="dui-badge-icon">
       <slot></slot>
     </div>
-    <p invert reset-margin :class="`dui-badge-text-${size}`">{{value}}</p>
+    <Text invert no-margin>{{value}}</Text>
+<!--    <p invert reset-margin :class="`dui-badge-text-${size}`">{{value}}</p>-->
   </Grid>
 </template>
 
 <script>
   import Grid from "./grid/Grid";
+  import Text from "./Text";
 
   export default {
     name: "Badge",
-    components: {Grid},
+    components: {Text, Grid},
     props: {
       value: {
         type: String,

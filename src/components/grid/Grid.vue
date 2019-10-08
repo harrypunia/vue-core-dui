@@ -15,12 +15,10 @@
       },
       justify: {
         type: String,
-        default: "flex-start",
         validator: value => ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly", "initial", "unset"].indexOf(value) !== -1
       },
       align: {
         type: String,
-        default: "flex-start",
         validator: value => ["flex-start", "flex-end", "center", "baseline", "stretch", "initial", "unset"].indexOf(value) !== -1
       },
       column: Boolean,
@@ -35,9 +33,9 @@
         alignClasses: `grid-align-${this.align}`,
         wrapClasses: this.wrap ? "grid-wrap" : null,
         columnClasses: this.column ? "grid-column" : null
-      }
+      };
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>@import "../../resources/scss/components/grid/grid";</style>
