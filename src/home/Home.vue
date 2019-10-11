@@ -1,12 +1,5 @@
 <template>
   <Grid center column style="padding: 0">
-    <Grid justify="space-between" style="background: #ef6578">
-      <Type type="p">Hello</Type>
-      <div>
-        <Type type="p">Hello</Type>
-        <Type type="p">Hello</Type>
-      </div>
-    </Grid>
     <Button :onClick="e => setDefault()">Save State</Button>
     <Button :onClick="resetHomePage" type="fill">Reset</Button>
     <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
