@@ -5,7 +5,7 @@
   border: none;
   width: 100%;
   padding: 15px 2px 5px 2px;
-  font-family: inherit;
+  font-family: "Ubuntu", sans-serif;
   font-size: 18px;
   background-color: transparent;
   color: map-get($grey, 8);
@@ -35,7 +35,7 @@
     top: 16px;
     left: 8px;
     font-size: 18px;
-    font-family: inherit;
+    font-family: "Ubuntu", sans-serif;
     color: map-get($grey, 3);
     transition: transform .2s ease;
     z-index: 1;

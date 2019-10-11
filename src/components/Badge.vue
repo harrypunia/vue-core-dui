@@ -1,10 +1,9 @@
 <template>
-  <Grid center class="dui-badge" :class="size && `dui-badge-${size}`" :style="{...getObjectKey(css, 'container')}">
+  <Grid center class="dui-badge" :class="badgeClasses" :style="{...getObjectKey(css, 'container')}" @click.native.prevent="onClick(value)">
     <div v-if="$slots.default" class="dui-badge-icon">
       <slot></slot>
     </div>
     <Type invert no-margin>{{value}}</Type>
-    <!--    <p invert reset-margin :class="`dui-badge-text-${size}`">{{value}}</p>-->
   </Grid>
 </template>
 
@@ -24,7 +23,17 @@
         type: String,
         validator: value => ["large", "small"].indexOf(value) !== -1
       },
-      css: Object
+      css: Object,
+      hover: Boolean,
+      onClick: Function
+    },
+    data() {
+      return {
+        badgeClasses: [
+          this.size && `dui-badge-${this.size}`,
+          this.hover && "dui-badge-hover"
+        ]
+      };
     }
   };
 </script>

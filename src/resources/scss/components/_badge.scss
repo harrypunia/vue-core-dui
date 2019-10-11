@@ -2,7 +2,7 @@
 
 .dui-badge {
   width: auto;
-  background-color: map-get($grey, 1);
+  background-color: #f7f7f7;
   padding: 4px 14px;
   margin: 0 4px;
   border-radius: 20px;
@@ -19,6 +19,14 @@
   &-large {
     padding: 5px 16px;
     margin: 0 5px;
+  }
+
+  &-hover {
+    cursor: pointer;
+
+    &:hover {
+      background-color: map_get($grey, 1);
+    }
   }
 
   &-text {

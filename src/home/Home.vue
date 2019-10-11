@@ -1,5 +1,5 @@
 <template>
-  <Grid center column style="padding: 0">
+  <div>
     <NavBar>
       <div slot="left">
         <Type component="h4" bold uppercase noMargin>Designed UI | DUI</Type>
@@ -10,28 +10,53 @@
         <NavButton>About</NavButton>
       </div>
     </NavBar>
-    <Button :onClick="e => setDefault()">Save State</Button>
-    <Button :onClick="resetHomePage" type="fill">Reset</Button>
-    <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
-    <div style="width: 250px; margin: 20px">
-      <p invert>Input: {{`${input} & ${customInput}`}}</p>
-      <Input :value.sync="input" label="Input"/>
-      <Input class="customInput" :value.sync="customInput" label="Custom CSS"/>
-    </div>
-    <Card flat outline>
-      <Grid wrap center column>
-        <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
-        <Grid center>
-          <Dropdown name="dropdown" :value.sync="dropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
-          <Dropdown name="dropdown" class="customDropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down"/>
+    <Grid wrap>
+      <Card>
+        <Grid center column>
+          <Type component="h2" invert no-margin>Buttons</Type>
+          <div>
+            <Button :onClick="e => setDefault()">Save State</Button>
+            <Button :onClick="resetHomePage" type="fill">Reset</Button>
+            <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
+          </div>
         </Grid>
-      </Grid>
-      <Grid center>
-        <Badge value="Vue"/>
-        <Badge value="Dui">❌️</Badge>
-      </Grid>
-    </Card>
-  </Grid>
+      </Card>
+      <Card>
+        <Grid column>
+          <Grid center>
+            <Type component="h2" invert noMargin>Input: &nbsp;</Type>
+            <Type component="h3" invert noMargin>{{`${input} & ${customInput}`}}</Type>
+          </Grid>
+          <Input :value.sync="input" label="Input"/>
+          <Input class="customInput" :value.sync="customInput" label="Custom CSS"/>
+        </Grid>
+      </Card>
+      <Card>
+        <Grid wrap center column>
+          <Grid center>
+            <Type component="h2" invert noMargin>Dropdown: &nbsp;</Type>
+            <Type component="h3" invert noMargin>{{`${dropdown} & ${customDropdown}`}}</Type>
+          </Grid>
+          <Grid center>
+            <Dropdown name="dropdown" :value.sync="dropdown" :options="dropDownOptions" label="Drop Down" zIndex="2"/>
+            <Dropdown name="dropdown" class="customDropdown" :value.sync="customDropdown" :options="dropDownOptions" label="Drop Down"/>
+          </Grid>
+        </Grid>
+      </Card>
+      <Card>
+        <Grid column center>
+          <Type component="h2" invert noMargin>Badges</Type>
+          <Grid>
+            <Badge :key="i" v-for="(badge, i) in badges" :value="badge" :onClick="removeBadge" hover>❌</Badge>
+          </Grid>
+          <Grid column>
+            <Input :value.sync="newBadge" label="Tag"/>
+            <Button :onClick="addBadge" type="fill">Add</Button>
+          </Grid>
+        </Grid>
+      </Card>
+    </Grid>
+  </div>
 </template>
 
 <script>
@@ -54,12 +79,22 @@
         customInput: "Custom Input",
         dropdown: "Drop Down",
         customDropdown: "Custom Drop Down",
-        dropDownOptions: ["Good Morning", "Good Afternoon", "Good Evening", "Good Night"]
+        dropDownOptions: ["Good Morning", "Good Afternoon", "Good Evening", "Good Night"],
+        badges: ["Vue", "Dui"],
+        newBadge: ""
       };
     },
     methods: {
       resetHomePage() {
         this.reset();
+      },
+      addBadge() {
+        this.badges.push(this.newBadge);
+        this.newBadge = "";
+      },
+      removeBadge(val) {
+        const idx = this.badges.findIndex(b => b === val);
+        this.badges.splice(idx, 1);
       }
     }
   };
