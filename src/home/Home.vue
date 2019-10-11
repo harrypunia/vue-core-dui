@@ -2,12 +2,12 @@
   <Grid center column style="padding: 0">
     <NavBar>
       <div slot="left">
-        <Type component="h4" noMargin>Capstone</Type>
+        <Type component="h4" bold uppercase noMargin>Designed UI | DUI</Type>
       </div>
       <div slot="right">
-        <NavButton bold uppercase href="https://www.google.com" newTab external>Google</NavButton>
-        <NavButton href="https://www.google.com" newTab external>Google</NavButton>
-        <NavButton href="https://www.google.com" newTab external>Custom Google</NavButton>
+        <NavButton>Home</NavButton>
+        <NavButton>Components</NavButton>
+        <NavButton>About</NavButton>
       </div>
     </NavBar>
     <Button :onClick="e => setDefault()">Save State</Button>
