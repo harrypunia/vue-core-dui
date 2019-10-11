@@ -57,11 +57,11 @@
     font-weight: 700;
   }
 
-  uppercase {
+  &-uppercase {
     text-transform: uppercase;
   }
 
-  lowercase {
+  &-lowercase {
     text-transform: lowercase;
   }
 }

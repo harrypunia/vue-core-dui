@@ -1,6 +1,7 @@
 @import "../../core/core";
 
-.grid {
+.dui-grid {
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
@@ -16,6 +17,10 @@
 
   &-wrap {
     flex-wrap: wrap;
+  }
+
+  &-inline {
+    display: inline-flex;
   }
 
   &-align {

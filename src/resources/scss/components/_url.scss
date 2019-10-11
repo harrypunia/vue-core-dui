@@ -1,0 +1,38 @@
+@import "../core/core";
+
+.dui-url {
+  font-family: sans-serif;
+  line-height: 1.5em;
+  margin: .5em;
+  color: map-get($grey, 0);
+  cursor: pointer;
+  text-decoration: none;
+
+  &-noMargin {
+    margin: 0;
+  }
+
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-invert {
+    color: map-get($grey, 10);
+  }
+
+  &-bold {
+    font-weight: 700;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-lowercase {
+    text-transform: lowercase;
+  }
+}

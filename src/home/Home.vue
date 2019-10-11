@@ -1,5 +1,15 @@
 <template>
   <Grid center column style="padding: 0">
+    <NavBar>
+      <div slot="left">
+        <Type component="h4" noMargin>Capstone</Type>
+      </div>
+      <div slot="right">
+        <NavButton bold uppercase href="https://www.google.com" newTab external>Google</NavButton>
+        <NavButton href="https://www.google.com" newTab external>Google</NavButton>
+        <NavButton href="https://www.google.com" newTab external>Custom Google</NavButton>
+      </div>
+    </NavBar>
     <Button :onClick="e => setDefault()">Save State</Button>
     <Button :onClick="resetHomePage" type="fill">Reset</Button>
     <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
@@ -8,7 +18,7 @@
       <Input :value.sync="input" label="Input"/>
       <Input class="customInput" :value.sync="customInput" label="Custom CSS"/>
     </div>
-    <Card>
+    <Card flat outline>
       <Grid wrap center column>
         <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
         <Grid center>
@@ -31,11 +41,13 @@
   import Dropdown from "../components/Dropdown";
   import Grid from "../components/grid/Grid";
   import Input from "../components/input/Input";
+  import NavBar from "../components/nav/NavBar";
+  import NavButton from "../components/nav/NavButton";
   import Type from "../components/Type";
 
   export default {
     name: "Home",
-    components: {Input, Dropdown, Grid, Card, Button, Badge, Type},
+    components: {Input, Dropdown, Grid, Card, Button, Badge, Type, NavBar, NavButton},
     data() {
       return {
         input: "Input",

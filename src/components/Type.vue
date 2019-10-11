@@ -1,15 +1,15 @@
 <template>
   <div class="dui-text">
-    <h1 v-if="type === 'h1'" class="dui-text-global dui-text-h1" :class="textClasses">
+    <h1 v-if="component === 'h1'" class="dui-text-global dui-text-h1" :class="textClasses">
       <slot></slot>
     </h1>
-    <h2 v-else-if="type === 'h2'" class="dui-text-global dui-text-h2" :class="textClasses">
+    <h2 v-else-if="component === 'h2'" class="dui-text-global dui-text-h2" :class="textClasses">
       <slot></slot>
     </h2>
-    <h3 v-else-if="type === 'h3'" class="dui-text-global dui-text-h3" :class="textClasses">
+    <h3 v-else-if="component === 'h3'" class="dui-text-global dui-text-h3" :class="textClasses">
       <slot></slot>
     </h3>
-    <h4 v-else-if="type === 'h4'" class="dui-text-global dui-text-h4" :class="textClasses">
+    <h4 v-else-if="component === 'h4'" class="dui-text-global dui-text-h4" :class="textClasses">
       <slot></slot>
     </h4>
     <p v-else class="dui-text-global dui-text-p" :class="textClasses">
@@ -20,9 +20,9 @@
 
 <script>
   export default {
-    name: "Text",
+    name: "Type",
     props: {
-      type: {
+      component: {
         type: String,
         validator: value => ["h1", "h2", "h3", "h4", "p"].indexOf(value) !== -1
       },

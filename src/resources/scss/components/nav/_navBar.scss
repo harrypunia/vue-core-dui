@@ -1,0 +1,29 @@
+@import "../../core/core";
+
+.dui-nav {
+  background-color: map-get($theme, dark);
+  width: 100vw;
+  padding: 10px 20px;
+  position: relative;
+  left: 0;
+  top: 0;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+
+  &-left {
+    width: auto;
+  }
+
+  &-right {
+    width: auto;
+  }
+
+  &-sticky {
+    position: fixed;
+    z-index: map-get($index, forceAbove);
+  }
+
+  &-flat {
+    box-shadow: none;
+  }
+}

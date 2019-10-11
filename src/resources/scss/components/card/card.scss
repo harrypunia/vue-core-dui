@@ -2,27 +2,33 @@
 
 .card {
   position: relative;
-  width: 100%;
-  max-width: 800px;
   border-radius: 6px;
   padding: 20px;
   margin: 20px;
   background-color: map-get($theme, white);
 
+  &-auto {
+    width: auto;
+  }
+
   &-small {
-    max-width: 500px
+    width: 500px
   }
 
   &-regular {
-    max-width: 800px
+    width: 800px
   }
 
   &-large {
-    max-width: 1000px;
+    width: 1000px;
   }
 
   &-raised {
     box-shadow: map-get($shadow, regular);
     background-color: map-get($theme, white);
+  }
+
+  &-outline {
+    border: 1px solid map-get($grey, 1);
   }
 }

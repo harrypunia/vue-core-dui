@@ -1,5 +1,5 @@
 <template>
-  <div class="grid" :class="[dirClasses, centerClasses, justifyClasses, alignClasses, wrapClasses, columnClasses]">
+  <div class="dui-grid" :class="gridClasses">
     <slot></slot>
   </div>
 </template>
@@ -23,16 +23,20 @@
       },
       column: Boolean,
       wrap: Boolean,
-      center: Boolean
+      center: Boolean,
+      inline: Boolean
     },
     data() {
       return {
-        dirClasses: `grid-${this.direction}`,
-        centerClasses: this.center ? "grid-align-center grid-justify-center" : null,
-        justifyClasses: `grid-justify-${this.justify}`,
-        alignClasses: `grid-align-${this.align}`,
-        wrapClasses: this.wrap ? "grid-wrap" : null,
-        columnClasses: this.column ? "grid-column" : null
+        gridClasses: [
+          this.direction && `dui-grid-${this.direction}`,
+          this.center && "dui-grid-align-center dui-grid-justify-center",
+          this.justify && `dui-grid-justify-${this.justify}`,
+          this.align && `dui-grid-align-${this.align}`,
+          this.wrap && "dui-grid-wrap",
+          this.column && "dui-grid-column",
+          this.inline && "dui-grid-inline"
+        ]
       };
     }
   };
