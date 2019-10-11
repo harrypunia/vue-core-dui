@@ -1,5 +1,12 @@
 <template>
-  <Grid center column>
+  <Grid center column style="padding: 0">
+    <Grid justify="space-between" style="background: #ef6578">
+      <Type type="p">Hello</Type>
+      <div>
+        <Type type="p">Hello</Type>
+        <Type type="p">Hello</Type>
+      </div>
+    </Grid>
     <Button :onClick="e => setDefault()">Save State</Button>
     <Button :onClick="resetHomePage" type="fill">Reset</Button>
     <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
@@ -8,7 +15,7 @@
       <Input :value.sync="input" label="Input"/>
       <Input class="customInput" :value.sync="customInput" label="Custom CSS"/>
     </div>
-    <Card flat>
+    <Card>
       <Grid wrap center column>
         <p invert>Dropdown: {{`${dropdown} & ${customDropdown}`}}</p>
         <Grid center>
@@ -17,7 +24,7 @@
         </Grid>
       </Grid>
       <Grid center>
-        <Badge value="Vue" />
+        <Badge value="Vue"/>
         <Badge value="Dui">❌️</Badge>
       </Grid>
     </Card>
@@ -25,31 +32,32 @@
 </template>
 
 <script>
+  import Badge from "../components/Badge";
   import Button from "../components/button/Button";
   import Card from "../components/card/Card";
   import Dropdown from "../components/Dropdown";
   import Grid from "../components/grid/Grid";
   import Input from "../components/input/Input";
-  import Badge from "../components/Badge";
+  import Type from "../components/Type";
 
   export default {
     name: "Home",
-    components: {Input, Dropdown, Grid, Card, Button, Badge},
+    components: {Input, Dropdown, Grid, Card, Button, Badge, Type},
     data() {
       return {
         input: "Input",
         customInput: "Custom Input",
         dropdown: "Drop Down",
         customDropdown: "Custom Drop Down",
-        dropDownOptions: ["Good Morning", "Good Afternoon", "Good Evening", "Good Night"],
-      }
+        dropDownOptions: ["Good Morning", "Good Afternoon", "Good Evening", "Good Night"]
+      };
     },
     methods: {
       resetHomePage() {
         this.reset();
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>@import "../resources/scss/home/home";</style>

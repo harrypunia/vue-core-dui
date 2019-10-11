@@ -5,6 +5,10 @@
   background-color: transparent;
   border-color: black;
 
+  @include customCss(button-text) {
+    color: black;
+  }
+
   &:hover {
     background-color: black;
 
