@@ -15,9 +15,10 @@
         <Grid center column>
           <Type component="h2" invert no-margin>Buttons</Type>
           <div>
-            <Button :onClick="e => setDefault()">Save State</Button>
-            <Button :onClick="resetHomePage" type="fill">Reset</Button>
-            <Button class="customButton" :onClick="resetHomePage" type="fill">Custom Button</Button>
+            <Button @click="e => setDefault()">Save State</Button>
+            <Button @click.prevent="resetHomePage" design="fill">Reset</Button>
+            <Button @click.prevent="resetHomePage" design="rigid">Reset</Button>
+            <Button class="customButton" :onClick="resetHomePage">Custom Button</Button>
           </div>
         </Grid>
       </Card>
@@ -27,8 +28,8 @@
             <Type component="h2" invert noMargin>Input: &nbsp;</Type>
             <Type component="h3" invert noMargin>{{`${input} & ${customInput}`}}</Type>
           </Grid>
-          <Input :value.sync="input" label="Input"/>
-          <Input class="customInput" :value.sync="customInput" label="Custom CSS"/>
+          <Input v-model="input" label="Input"/>
+          <Input class="customInput" v-model="customInput" label="Custom CSS"/>
         </Grid>
       </Card>
       <Card>
@@ -44,14 +45,14 @@
         </Grid>
       </Card>
       <Card>
-        <Grid column center>
+        <Grid column center nowrap>
           <Type component="h2" invert noMargin>Badges</Type>
           <Grid>
-            <Badge :key="i" v-for="(badge, i) in badges" :value="badge" :onClick="removeBadge" hover>❌</Badge>
+            <Badge :key="i" v-for="(b, i) in badges" :value="b" prefix="❌" hover :onClick="removeBadge"/>
           </Grid>
           <Grid column>
-            <Input :value.sync="newBadge" label="Tag"/>
-            <Button :onClick="addBadge" type="fill">Add</Button>
+            <Input v-model="newBadge" label="Tag"/>
+            <Button design="fill" @click="addBadge">Add</Button>
           </Grid>
         </Grid>
       </Card>
@@ -76,7 +77,7 @@
     data() {
       return {
         input: "Input",
-        customInput: "Custom Input",
+        customInput: "",
         dropdown: "Drop Down",
         customDropdown: "Custom Drop Down",
         dropDownOptions: ["Good Morning", "Good Afternoon", "Good Evening", "Good Night"],

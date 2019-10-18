@@ -1,19 +1,14 @@
 <template>
   <div class="dui-input-container" :style="getObjectKey(css, 'container')">
     <input
-        :name="name" :type="type || 'text'"
+        ref="input"
         class="dui-input"
-        v-model="value_"
         :style="getObjectKey(css, 'input')"
-        @input="onChange ? onChange(value) : onInput()"
+        v-bind="$attrs"
+        @input="update($event)"
+        v-on="$listeners"
     />
-    <label
-        :for="name"
-        class="dui-input-label"
-        :class="{'dui-input-label-active' : value}"
-        :style="css ? (css.label || {}) : {}">
-      {{label}}
-    </label>
+    <label class="dui-input-label" :class="labelCSS" :style="getObjectKey(css, 'label')">{{label}}</label>
     <div class="dui-input-underline" :style="css ? (css.underline || {}) : {}"></div>
     <div class="dui-input-underline-active" :style="css ? (css.activeUnderline || {}) : {}"></div>
   </div>
@@ -22,34 +17,27 @@
 <script>
   export default {
     name: "Input",
+    inheritAttrs: false,
+    model: {
+      event: "update"
+    },
     props: {
-      name: {
-        type: String,
-        default: "input"
-      },
-      value: {
-        type: String,
-        required: true
-      },
-      type: String,
       label: String,
-      onChange: Function,
       css: Object
     },
     data() {
       return {
-        value_: this.value
+        labelCSS: ""
       };
     },
-    watch: {
-      value(val) {
-        this.value_ = val;
+    methods: {
+      update(e) {
+        this.$emit("update", e.target.value);
+        this.labelCSS = e.target.value ? "dui-input-label-active" : "";
       }
     },
-    methods: {
-      onInput() {
-        this.$emit("update:value", this.value_);
-      }
+    mounted() {
+      this.labelCSS = this.$refs["input"].value ? "dui-input-label-active" : "";
     }
   };
 </script>

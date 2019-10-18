@@ -11,15 +11,15 @@
       direction: {
         type: String,
         default: "row",
-        validator: value => ["column", "row"].indexOf(value) !== -1
+        validator: value => ["column", "row", "row-reverse", "column-reverse"].indexOf(value) !== -1
       },
       justify: {
         type: String,
-        validator: value => ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly", "initial", "unset"].indexOf(value) !== -1
+        validator: value => ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly", "initial"].indexOf(value) !== -1
       },
       align: {
         type: String,
-        validator: value => ["flex-start", "flex-end", "center", "baseline", "stretch", "initial", "unset"].indexOf(value) !== -1
+        validator: value => ["flex-start", "flex-end", "center", "baseline", "stretch", "initial"].indexOf(value) !== -1
       },
       column: Boolean,
       wrap: Boolean,

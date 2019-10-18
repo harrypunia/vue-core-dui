@@ -1,9 +1,9 @@
 <template>
   <button
       class="dui-button"
-      :class="[typeClasses]"
+      :class="[buttonClasses]"
       :style="getObjectKey(css, 'button')"
-      @click.prevent="e => onClick ? onClick(e) : null">
+      v-on="$listeners">
     <p reset-margin invert class="dui-button-text" :style="getObjectKey(css, 'text')">
       <slot></slot>
     </p>
@@ -14,20 +14,19 @@
   export default {
     name: "Button",
     props: {
-      type: {
+      design: {
         type: String,
         default: "outline",
         validator: value => ["fill", "outline", "rigid"].indexOf(value) !== -1
       },
-      css: Object,
-      onClick: Function
+      css: Object
     },
     data() {
       return {
-        typeClasses: `dui-button-${this.type}`
-      }
+        buttonClasses: `dui-button-${this.design}`
+      };
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>@import "../../resources/scss/components/button/button";</style>

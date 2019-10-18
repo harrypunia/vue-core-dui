@@ -1,8 +1,6 @@
 <template>
   <Grid center class="dui-badge" :class="badgeClasses" :style="{...getObjectKey(css, 'container')}" @click.native.prevent="onClick(value)">
-    <div v-if="$slots.default" class="dui-badge-icon">
-      <slot></slot>
-    </div>
+    <p v-if="prefix" class="dui-badge-icon">{{prefix}}</p>
     <Type invert no-margin>{{value}}</Type>
   </Grid>
 </template>
@@ -23,6 +21,7 @@
         type: String,
         validator: value => ["large", "small"].indexOf(value) !== -1
       },
+      prefix: String,
       css: Object,
       hover: Boolean,
       onClick: Function

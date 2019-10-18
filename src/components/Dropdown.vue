@@ -51,22 +51,22 @@
         value_: this.value,
         isDrawer: false,
         clickAwayListener: null
-      }
+      };
     },
     created() {
-      window.addEventListener('click', e => !this.$el.contains(e.target) ? this.isDrawer = false : null)
+      window.addEventListener("click", e => !this.$el.contains(e.target) ? this.isDrawer = false : null);
     },
     methods: {
       select(option) {
         this.isDrawer = false;
         this.value_ = option;
-        this.$emit('update:value', this.value_);
+        this.$emit("update:value", this.value_);
       },
       toggleDrawer() {
         this.isDrawer = !this.isDrawer;
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>@import "../resources/scss/components/dropdown";</style>

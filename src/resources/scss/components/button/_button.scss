@@ -3,6 +3,7 @@
 .dui-button {
   position: relative;
   min-width: 120px;
+  display: inline-block;
   padding: 10px 4em;
   margin: 10px;
   border-radius: 5em;
@@ -54,16 +55,17 @@
     }
   }
 
-  &-rigi {
+  &-rigid {
     background-color: map-get($theme, white);
     border: 1px solid map-get($theme, secondary);
     border-radius: 0;
+    @include focus();
 
     .dui-button-text {
       color: map-get($theme, secondary);
     }
 
-    &:hover {
+    &:hover, &:focus {
       background-color: map-get($theme, secondary);
 
       .dui-button-text {
@@ -71,4 +73,10 @@
       }
     }
   }
+
+  &[disabled] {
+    opacity: .5;
+    pointer-events: none;
+  }
+
 }

@@ -1,12 +1,14 @@
 <template>
-  <Grid class="dui-nav" align="center" justify="space-between" :class="navClasses">
-    <Grid center class="dui-nav-left">
-      <slot name="left"></slot>
+  <nav>
+    <Grid class="dui-nav" align="center" justify="space-between" :class="navClasses">
+      <Grid center class="dui-nav-left">
+        <slot name="left"></slot>
+      </Grid>
+      <Grid center class="dui-nav-right">
+        <slot name="right"></slot>
+      </Grid>
     </Grid>
-    <Grid center class="dui-nav-right">
-      <slot name="right"></slot>
-    </Grid>
-  </Grid>
+  </nav>
 </template>
 
 <script>
