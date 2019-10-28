@@ -1,0 +1,20 @@
+@import "../core/mixins";
+
+.customTable {
+  @include customCss("table-head") {
+    background: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  @include customCss("table-row") {
+    background: #333;
+
+    &:hover {
+      background: black
+    }
+  }
+
+  @include customCss("table-row-cell") {
+    color: white;
+  }
+}

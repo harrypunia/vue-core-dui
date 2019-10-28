@@ -5,37 +5,39 @@
         class="dui-dropdown"
         @click.native.prevent="toggleDrawer"
         :style="getObjectKey(css, 'button')">
-      <p reset-margin class="dui-dropdown-selected" :style="getObjectKey(css, 'buttonText')">{{value}}</p>
+      <Type no-margin class="dui-dropdown-selected" :style="getObjectKey(css, 'buttonText')">{{value}}</Type>
       <dui-icon
           :class="['dui-dropdown-icon', {'dui-dropdown-icon-rotate' : isDrawer}]"
           :icon="arrowIcon || 'chevron-down'"
           color="white"></dui-icon>
     </Grid>
     <div class="dui-dropdown-drawer" :class="{'dui-dropdown-drawer-open' : isDrawer}" :style="getObjectKey(css, 'drawer')">
-      <h4 :key="index"
-          v-for="(option, index) in options"
-          class="dui-dropdown-drawer-item"
-          :style="getObjectKey(css, 'drawerItem')"
-          @click.prevent="() => onChange ? onChange(option, index) : select(option)">
+      <Type component="h4" :key="index" no-margin
+            v-for="(option, index) in options"
+            class="dui-dropdown-drawer-item"
+            :style="getObjectKey(css, 'drawerItem')"
+            @click.native.prevent="() => onChange ? onChange(option, index) : select(option)">
         <span class="dui-dropdown-drawer-highlight" :style="getObjectKey(css, 'drawerHighlight')"></span>
         <span class="dui-dropdown-drawer-text" :style="getObjectKey(css, 'drawerText')">{{option}}</span>
-      </h4>
+      </Type>
     </div>
   </div>
 </template>
 
 <script>
   import Grid from "./grid/Grid";
+  import Type from "./Type";
 
   export default {
     name: "Input",
+    components: {Type, Grid},
     props: {
       name: {
         type: String,
         required: true
       },
       value: {
-        type: String,
+        type: [String, Number],
         required: true
       },
       arrowIcon: String,
@@ -45,7 +47,6 @@
       zIndex: String,
       css: Object
     },
-    components: {Grid},
     data() {
       return {
         value_: this.value,

@@ -1,0 +1,79 @@
+@import "../core/core";
+
+.dui-table {
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: map_get($theme, white);
+
+  &-container {
+    position: relative;
+    display: inline-block;
+    margin: 5px 10px;
+    overflow: auto;
+    border-radius: 5px;
+    border: 1px solid map-get($grey, 1);
+    box-shadow: map_get($shadow, regular);
+  }
+
+  &-scroll {
+    overflow-y: auto;
+  }
+
+  &-cell {
+    font-family: sans-serif;
+    text-align: left;
+    min-width: 100px;
+    padding: 10px 30px;
+    font-size: 16px;
+    border-bottom: 1px solid map_get($grey, 1);
+  }
+
+  &-head {
+    background-color: map_get($theme, secondary);
+    color: map_get($theme, white);
+
+    &-cell {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      opacity: .8;
+
+      &-arrow {
+        color: map_get($theme, white);
+        font-size: 1em;
+        margin: auto 5px;
+        transform: scale(.75);
+        @include smooth(transform, .2s);
+      }
+
+      &-rotate {
+        transform: scale(.75) rotate(180deg);
+      }
+
+      &-sorted {
+        opacity: 1;
+      }
+
+      &-sort {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-row {
+    background-color: map_get($theme, white);
+
+    &:last-child &-cell {
+      border: none;
+    }
+
+    &-cell {
+      font-weight: 300;
+      color: map_get($grey, 6)
+    }
+
+    &-hover:hover {
+      background-color: rgba(map_get($theme, secondary), .1)
+    }
+  }
+}

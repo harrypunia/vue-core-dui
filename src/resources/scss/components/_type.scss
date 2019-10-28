@@ -6,7 +6,7 @@
     line-height: 1.5em;
     margin: 0;
     margin-top: .5em;
-    color: map-get($grey, 0);
+    color: inherit;
   }
 
   &-h1 {
@@ -47,10 +47,6 @@
 
   &-center {
     text-align: center;
-  }
-
-  &-invert {
-    color: map-get($grey, 10);
   }
 
   &-bold {

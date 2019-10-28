@@ -1,0 +1,30 @@
+@import "../core/mixins";
+
+.customDropdown {
+  @include customCss(dropdown) {
+    background-color: white;
+    border: 1px solid black;
+
+    &-selected {
+      color: black;
+    }
+
+    &-icon {
+      color: black;
+    }
+
+    &-drawer {
+      background-color: white;
+      border: 1px solid black;
+
+      &-text {
+        color: black;
+      }
+
+      &-highlight {
+        background-color: black;
+        width: 10px;
+      }
+    }
+  }
+}

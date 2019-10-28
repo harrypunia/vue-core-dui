@@ -28,7 +28,6 @@
       },
       noMargin: Boolean,
       center: Boolean,
-      invert: Boolean,
       bold: Boolean,
       uppercase: Boolean,
       lowercase: Boolean
@@ -38,7 +37,6 @@
         textClasses: [
           this.noMargin && "dui-text-noMargin",
           this.center && "dui-text-center",
-          this.invert && "dui-text-invert",
           this.bold && "dui-text-bold",
           this.uppercase && "dui-text-uppercase",
           this.lowercase && "dui-text-lowercase"

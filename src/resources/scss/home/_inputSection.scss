@@ -1,0 +1,16 @@
+@import "../core/mixins";
+
+.customInput {
+  background: #f7f7f7;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+
+  @include customCss(input) {
+    &-underline {
+      background-color: black;
+    }
+
+    &-underline-active {
+      background-color: #7f16be;
+    }
+  }
+}

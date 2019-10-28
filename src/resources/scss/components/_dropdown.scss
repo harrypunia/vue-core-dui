@@ -16,6 +16,10 @@
     min-width: 200px;
   }
 
+  &-selected {
+    color: map_get($theme, white);
+  }
+
   &-icon {
     margin-left: 20px;
     font-size: 16px;
@@ -48,7 +52,7 @@
 
     &-item {
       position: relative;
-      padding: 20px 15px;
+      padding: 10px 15px;
       margin: 0;
       color: map-get($theme, white);
       cursor: pointer;

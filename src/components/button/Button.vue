@@ -4,15 +4,18 @@
       :class="[buttonClasses]"
       :style="getObjectKey(css, 'button')"
       v-on="$listeners">
-    <p reset-margin invert class="dui-button-text" :style="getObjectKey(css, 'text')">
+    <Type no-margin class="dui-button-text" :style="getObjectKey(css, 'text')">
       <slot></slot>
-    </p>
+    </Type>
   </button>
 </template>
 
 <script>
+  import Type from "../Type";
+
   export default {
     name: "Button",
+    components: {Type},
     props: {
       design: {
         type: String,

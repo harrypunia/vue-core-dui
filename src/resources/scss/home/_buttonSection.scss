@@ -1,0 +1,19 @@
+@import "../core/mixins";
+
+.customButton {
+  border-radius: 0;
+  background-color: transparent;
+  border-color: black;
+
+  @include customCss(button-text) {
+    color: black;
+  }
+
+  &:hover, &:focus {
+    background-color: black;
+
+    @include customCss(button-text) {
+      color: white !important;
+    }
+  }
+}
